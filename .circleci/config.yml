@@ -31,7 +31,16 @@ jobs:
       - run:
           name: Run tests
           command: npm test
-
+  publish-package:   
+     docker:
+      - image: cimg/node:15.1  
+     steps:
+      - run:
+          name: Authenticate with registry
+          command: echo "//registry.npmjs.org/:_authToken=$npm_TOKEN" > ~/repo/.npmrc
+      - run:
+          name: Publish package
+          command: npm publish
 workflows:
   # Below is the definition of your workflow.
   # Inside the workflow, you provide the jobs you want to run, e.g this workflow runs the build-and-test job above.
@@ -42,3 +51,10 @@ workflows:
       - build-and-test
       # For running simple node tests, you could optionally use the node/test job from the orb to replicate and replace the job above in fewer lines.
       # - node/test
+      - publish-package:
+          requires:
+            - build-and-test
+          filters:
+            branches:
+              only:
+                - main
