@@ -1,4 +1,4 @@
-#!/usr/bin/env bash
+#!/usr/bin/env bash -x
 #get version update_type argument (default=patch)
 version_update_type=${1:-patch}
 pid=$$
@@ -40,7 +40,7 @@ fs.writeFile(fileName, JSON.stringify(data, null, 2), function writeJSON(err) {
 });
 EOF
 #update the version in package.json using the npm version command
-npm version $version_update_type
+npm version $version_update_type --git-tag-version=false
 if [ $? -ne 0 ]; then
     echo "failed to update version on package.json"
     exit 1
