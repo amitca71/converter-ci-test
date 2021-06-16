@@ -38,6 +38,7 @@ jobs:
       - persist_to_workspace:
           root: ~/repo
           paths: .
+
   publish-package: 
      <<: *defaults  
      docker:
@@ -48,6 +49,7 @@ jobs:
       - run:
           name: Authenticate with registry
           command: echo "//registry.npmjs.org/:_authToken=$npm_TOKEN" > ~/repo/.npmrc
+      - run: ./.circleci/sync_app_version.sh
       - run:
           name: Publish package
           command: npm publish
