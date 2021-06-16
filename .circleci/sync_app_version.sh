@@ -1,4 +1,4 @@
-#!/usr/bin/env bash -x
+#!/usr/bin/env bash
 #get version update_type argument (default=patch)
 version_update_type=${1:-patch}
 pid=$$
