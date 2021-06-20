@@ -8,8 +8,8 @@
     "build": "tsc",
     "format": "prettier --write \"src/**/*.ts\" \"app/**/*.js\"",
     "lint": "tslint -p tsconfig.json", 
-    "test": "mocha --reporter spec --exit; jest --config jestconfig.json" 
-    "prepare": "npm run build",
+    "test": "mocha --reporter spec --exit; jest --config jestconfig.json", 
+    "prepare": "npm run build"
   },
   "author": "",
   "license": "ISC",
