@@ -6,7 +6,7 @@
   "scripts": {
     "sync_version": "bump-version",
     "build": "tsc",
-    "format": "prettier --write \"src/**/*.ts\" \"src/**/*.js\"",
+    "format": "prettier --write \"src/**/*.ts\" \"app/**/*.js\"",
     "lint": "tslint -p tsconfig.json", 
     "test": "mocha --reporter spec --exit; jest --config jestconfig.json", 
     "prepare": "npm run build",
