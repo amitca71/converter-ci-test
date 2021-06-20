@@ -1,9 +1,10 @@
 {
   "name": "vn-converter-sample",
-  "version": "1.0.0",
+  "version": "1.0.3",
   "description": "",
   "main": "index.js",
   "scripts": {
+    "sync_version": "bump-version",
     "test": "mocha --reporter spec --exit"
   },
   "author": "",
@@ -12,6 +13,7 @@
     "chai": "^4.3.4",
     "express": "^4.17.1",
     "mocha": "^9.0.0",
+    "npm-auto-bump-patch": "^1.0.1",
     "request": "^2.88.2"
   }
 }
