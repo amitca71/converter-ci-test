@@ -8,7 +8,7 @@
     "build": "tsc",
     "format": "prettier --write \"src/**/*.ts\" \"app/**/*.js\"",
     "lint": "tslint -p tsconfig.json",
-    "test": "mocha --reporter spec --exit; jest --config jestconfig.json; mocha --reporter mocha-junit-reporter --reporter-options mochaFile=reports/mocha/test-results.xml --exit",
+    "test": "mocha --reporter spec --exit; jest --config jestconfig.json; mocha --reporter mocha-junit-reporter --reporter-options mochaFile=reports/mocha/test-results.xml --exit; jest --ci --runInBand --reporters=default --reporters=jest-junit --config jestconfig.json",
     "prepare": "npm run build"
   },
   "author": "",
@@ -16,6 +16,7 @@
   "dependencies": {
     "chai": "^4.3.4",
     "express": "^4.17.1",
+    "jest-junit": "^12.2.0",
     "mocha": "^9.0.0",
     "mocha-junit-reporter": "^2.0.0",
     "npm-auto-bump-patch": "^1.0.1",
