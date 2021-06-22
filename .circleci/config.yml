@@ -34,7 +34,7 @@ jobs:
       #     pkg-manager: yarn 
       - run: 
           name: build ts
-          command: npm run prepare
+          command: npm run prepare >> ~/.npm/_logs/console.log 2>&1
       - run:
           name: Run tests
           command: npm test
