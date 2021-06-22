@@ -48,7 +48,7 @@ jobs:
       - store_artifacts:
           path: ~/.npm/_logs/
       - store_artifacts:
-          path: ~/tmp
+          path: /tmp
   publish-package: 
      <<: *defaults  
      docker:
