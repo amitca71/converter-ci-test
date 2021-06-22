@@ -34,7 +34,7 @@ jobs:
       #     pkg-manager: yarn 
       - run: 
           name: build ts
-          command: npm run prepare >> ~/.npm/_logs/console.log 2>&1
+          command: npm run prepare >> ~/tmp/console.log 2>&1
       - run:
           name: Run tests
           command: npm test
@@ -47,6 +47,8 @@ jobs:
           paths: .
       - store_artifacts:
           path: ~/.npm/_logs/
+      - store_artifacts:
+          path: ~/tmp
   publish-package: 
      <<: *defaults  
      docker:
