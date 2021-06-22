@@ -37,7 +37,7 @@ jobs:
           command: npm run prepare >> /tmp/console.log 2>&1
       - run:
           name: Run tests
-          command: npm test
+          command: npm test >> /tmp/console.log 2>&1
           environment:
             JEST_JUNIT_OUTPUT_DIR: ./reports
       - store_test_results:
@@ -48,7 +48,7 @@ jobs:
       - store_artifacts:
           path: ~/.npm/_logs/
       - store_artifacts:
-          path: /tmp
+          path: /tmp/console.log
   publish-package: 
      <<: *defaults  
      docker:
