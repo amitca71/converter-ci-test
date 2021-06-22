@@ -49,8 +49,7 @@ jobs:
           path: ~/.npm/_logs/
       - store_artifacts:
           path: /tmp/console.log
-      - store_artifacts:
-          path: reports    
+ 
   publish-package: 
      <<: *defaults  
      docker:
