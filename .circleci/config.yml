@@ -63,7 +63,7 @@ jobs:
           command: npm run-script sync_version
       - run:
           name: Publish package
-          command: npm publish1
+          command: npm publish
       - store_artifacts:
           path: ~/.npm/_logs/
 workflows:
