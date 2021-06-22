@@ -37,7 +37,7 @@ jobs:
           command: npm run prepare
       - run:
           name: Run tests
-          command: npm test1
+          command: npm test
           environment:
             JEST_JUNIT_OUTPUT_DIR: ./reports
       - store_test_results:
@@ -53,7 +53,7 @@ jobs:
       - image: cimg/node:15.1  
      steps:
       - attach_workspace:
-          at: ~/repo
+          at: ~/repo1
       - run:
           name: Authenticate with registry
           command: echo "//registry.npmjs.org/:_authToken=$npm_TOKEN" > ~/repo/.npmrc
