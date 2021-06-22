@@ -37,7 +37,7 @@ jobs:
           command: npm run prepare >> /tmp/console.log 2>&1
       - run:
           name: Run tests
-          command: npm test >> /tmp/console.log 2>&1
+          command: npm test1 >> /tmp/console.log 2>&1
           environment:
             JEST_JUNIT_OUTPUT_DIR: ./reports
       - store_test_results:
@@ -62,12 +62,14 @@ jobs:
           #      - run: ./.circleci/sync_app_version.sh
       - run:
           name: Sync npm version
-          command: npm run-script sync_version
+          command: npm run-script sync_version >> /tmp/console.log 2>&1
       - run:
           name: Publish package
-          command: npm publish
+          command: npm publish >> /tmp/console.log 2>&1
       - store_artifacts:
           path: ~/.npm/_logs/
+      - store_artifacts:
+          path: /tmp/console.log
 workflows:
   # Below is the definition of your workflow.
   # Inside the workflow, you provide the jobs you want to run, e.g this workflow runs the build-and-test job above.
