@@ -45,7 +45,8 @@ jobs:
       - persist_to_workspace:
           root: ~/repo
           paths: .
-
+      - store_artifacts:
+          path: ./.npm/_logs/
   publish-package: 
      <<: *defaults  
      docker:
