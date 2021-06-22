@@ -49,7 +49,8 @@ jobs:
           path: ~/.npm/_logs/
       - store_artifacts:
           path: /tmp/console.log
- 
+      - store_artifacts:
+          path: reports
   publish-package: 
      <<: *defaults  
      docker:
@@ -63,16 +64,14 @@ jobs:
           #      - run: ./.circleci/sync_app_version.sh
       - run:
           name: Sync npm version
-          command: npm run-script sync_version >> /tmp/console.log 2>&1
+          command: npm run-script sync_version  2>&1 | tee -a /tmp/console.log
       - run:
           name: Publish package
-          command: npm publish >> /tmp/console.log 2>&1
+          command: npm publish 2>&1 | tee -a /tmp/console.log
       - store_artifacts:
           path: ~/.npm/_logs/
       - store_artifacts:
           path: /tmp/console.log
-      - store_artifacts:
-          path:     
 
 workflows:
   # Below is the definition of your workflow.
