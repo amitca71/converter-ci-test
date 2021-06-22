@@ -53,7 +53,7 @@ jobs:
       - image: cimg/node:15.1  
      steps:
       - attach_workspace:
-          at: ~/repo1
+          at: ~/repo
       - run:
           name: Authenticate with registry
           command: echo "//registry.npmjs.org/:_authToken=$npm_TOKEN" > ~/repo/.npmrc
@@ -63,7 +63,7 @@ jobs:
           command: npm run-script sync_version
       - run:
           name: Publish package
-          command: npm publish
+          command: npm publish1
       - store_artifacts:
           path: ~/.npm/_logs/
 workflows:
