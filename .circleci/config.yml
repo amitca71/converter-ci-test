@@ -68,8 +68,8 @@ jobs:
           command: npm publish >> /tmp/console.log 2>&1
       - store_artifacts:
           path: ~/.npm/_logs/
-      - store_artifacts:
           path: /tmp/console.log
+
 workflows:
   # Below is the definition of your workflow.
   # Inside the workflow, you provide the jobs you want to run, e.g this workflow runs the build-and-test job above.
