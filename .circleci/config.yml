@@ -37,7 +37,7 @@ jobs:
           command: npm run prepare
       - run:
           name: Run tests
-          command: npm test
+          command: npm test1
           environment:
             JEST_JUNIT_OUTPUT_DIR: ./reports
       - store_test_results:
